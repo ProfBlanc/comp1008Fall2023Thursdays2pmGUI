@@ -5,3 +5,14 @@ If no, Output to error label- created in Step 1- an error message.
 3)When user clicked Register button, open a new screen named register-view.fxml: create a register view.
 At least 1 label. 1 Textfield for username.
 2 PasswordFields for password and confirm password
+
+4) Create a Controller named Register Controller
+5) Attach the controller above to the register-view
+6) Add the needed fx:id to username, password, confirmPassword fields.
+7) Add an onRegister event.
+    a) Determine if username is at least X characters
+    b) password match
+    c) If above criteria met, create or append to a file named credentials.txt the username/password combo
+        If not, output an error message
+8) Change the Login process in LoginController => read from credentials.txt to determine if username and password combo is correct
+
