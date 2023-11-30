@@ -10,6 +10,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.List;
+
 public class LoginController {
 
     @FXML
@@ -31,8 +35,42 @@ public class LoginController {
         password.setText(username.getText());
         username.setText(swap);
 
-    }    @FXML
-    void onLogin(Event event) {
+    }
+    @FXML
+    void onLogin(Event event) throws IOException {
+
+        error.setText("");
+        List<String> lines = Files.readAllLines(RegisterModel.pathFile);
+        boolean found = false;
+
+        for(String line : lines){
+            String[] pieces = line.split("/");
+            String currentUsername = pieces[0];
+            String currentPassword = pieces[1];
+
+            if(currentUsername.equals(username.getText()) && currentPassword.equals(password.getText())){
+                found = true;
+                break;
+            }
+        }
+
+        if(found){
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Congrats");
+            alert.setContentText("You have logged in!");
+            alert.show();
+
+        }
+        else{
+            error.setText("Invalid Username and/or Password");
+        }
+
+
+    }
+
+    @FXML
+    void onLoginPart1(Event event) {
 
         error.setText("");
         if(username.getText().equals("admin") && password.getText().equals("pass")){
