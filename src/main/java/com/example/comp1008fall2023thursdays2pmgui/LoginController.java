@@ -2,10 +2,13 @@ package com.example.comp1008fall2023thursdays2pmgui;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginController {
 
@@ -45,6 +48,16 @@ public class LoginController {
         }
 
     }
+    @FXML
+    void onRegisterClick(Event event) throws Exception{
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @FXML
     void initialize(){
 
