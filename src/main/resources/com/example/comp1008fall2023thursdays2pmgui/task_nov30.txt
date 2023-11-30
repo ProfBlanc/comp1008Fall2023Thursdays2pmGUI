@@ -1,0 +1,7 @@
+Tasks
+1) Add a Label to login-view.fxml: represent an error message. Red text and have no text to start.
+2)When user clicks Login button, determine if credentials = admin/pass. If yes. Output to Console (sout) a congrats message.
+If no, Output to error label- created in Step 1- an error message.
+3)When user clicked Register button, open a new screen named register-view.fxml: create a register view.
+At least 1 label. 1 Textfield for username.
+2 PasswordFields for password and confirm password
